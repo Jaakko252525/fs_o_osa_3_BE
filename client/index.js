@@ -15,6 +15,7 @@ app.use(cors({
 
 
 // showing frontend when deployed???
+
 app.use(express.static('build'))
 
 // require morgan
@@ -66,6 +67,7 @@ app.get('/api/siuuu', (request, response) => {
 
 
 app.get('/', (req, res) => {
+  console.log('in here')
   res.json(persons)
 })
 
