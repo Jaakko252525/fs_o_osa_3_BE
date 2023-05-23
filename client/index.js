@@ -8,7 +8,9 @@ const app = express()
 // accepting request from spesific url
 const cors = require('cors');
 app.use(cors({
-   origin: 'http://localhost:3000' 
+   origin: ['http://localhost:3000',
+   'https://fs-o-osa-3-be.onrender.com/'
+  ] 
   }));
 
 
