@@ -14,6 +14,8 @@ app.use(cors({
   }));
 
 
+// showing frontend when deployed???
+app.use(express.static('build'))
 
 // require morgan
 const morgan = require('morgan')
