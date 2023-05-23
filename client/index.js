@@ -63,12 +63,12 @@ app.get('/api/siuuu', (request, response) => {
 })
 
 
-app.get('/api/persons', (req, res) => {
+app.get('/', (req, res) => {
   res.json(persons)
 })
 
 
-app.get('/info', (req, res) => {
+app.get('/', (req, res) => {
     
     // fetching date and time
     const date_ob = new Date();
