@@ -57,13 +57,7 @@ let persons = [
 
 
 
-// get to test morgan
-app.get('/api/siuuu', (request, response) => {
 
-  console.log('siuu')
-
-
-})
 
 
 app.get('/', (req, res) => {
