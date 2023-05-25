@@ -35,6 +35,7 @@ const personMaker = (command, password, name, number) => {
       number: number,
 
     })
+    console.log('in mongodb????')
 
     // logging notes from database
     Person.find({}).then(result => {

@@ -179,8 +179,9 @@ app.post('/api/persons/', (request, response) => {
   console.log('person made succesfull')
   persons = persons.concat(person)
   console.log('POST works, random num:', random)
-  addPerson('node mongo.js', 'heihei123', body.name, body.number)
 
+  addPerson('node mongo.js', 'heihei123', body.name, body.number)
+  
   response.json(person)
 })
 
