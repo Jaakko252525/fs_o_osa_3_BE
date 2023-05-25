@@ -3,7 +3,10 @@
 const express = require('express')
 const app = express()
 
+// importing mongo.js module
+const addPerson = require('./mongo')
 
+addPerson('node mongo.js', 'heihei123', 'toimiiko netissa oleva servu', '123')
 
 // accepting request from spesific url
 const cors = require('cors');
