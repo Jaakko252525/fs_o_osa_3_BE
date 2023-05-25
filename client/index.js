@@ -6,7 +6,7 @@ const app = express()
 // importing mongo.js module
 const addPerson = require('./mongo')
 
-addPerson('node mongo.js', 'heihei123', 'toimiiko netissa oleva servu', '123')
+
 
 // accepting request from spesific url
 const cors = require('cors');
@@ -179,6 +179,7 @@ app.post('/api/persons/', (request, response) => {
   console.log('person made succesfull')
   persons = persons.concat(person)
   console.log('POST works, random num:', random)
+  addPerson('node mongo.js', 'heihei123', body.name, body.number)
 
   response.json(person)
 })
