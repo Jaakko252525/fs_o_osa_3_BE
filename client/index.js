@@ -125,11 +125,11 @@ app.delete('/api/persons/:id', (request, response) => {
 
 
 // POST
-// The POST works at least with Postman. Don't know if it works in vs code rest client
 app.post('/api/persons/', (request, response) => {
 
   // name already in persons. mapin person names check if in map
   const arrayOfNames = persons.map(person => person.name)
+  console.log('in post!!!!!!!!!!!!!!!')
   console.log(arrayOfNames)
 
 
@@ -181,7 +181,8 @@ app.post('/api/persons/', (request, response) => {
   console.log('POST works, random num:', random)
 
   addPerson('node mongo.js', 'heihei123', body.name, body.number)
-  
+  console.log(`added ${body.name} number ${body.number} to phonebook!!!`)
+
   response.json(person)
 })
 
