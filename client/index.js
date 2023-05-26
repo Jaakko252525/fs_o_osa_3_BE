@@ -3,6 +3,11 @@
 const express = require('express')
 const app = express()
 
+
+
+
+
+
 // importing mongo.js module
 const addPerson = require('./mongo')
 
@@ -11,10 +16,8 @@ const addPerson = require('./mongo')
 // accepting request from spesific url
 const cors = require('cors');
 app.use(cors({
-   origin: ['http://localhost:3000',
-   'https://fs-o-osa-3-be.onrender.com/'
-  ] 
-  }));
+  origin: '*'
+}));
 
 
 // showing frontend when deployed???
