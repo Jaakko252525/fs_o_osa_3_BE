@@ -6,7 +6,9 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', false)
 
-const url = process.env.MONGODB_URI
+const urlFirst = process.env.MONGODB_URI
+// converting url to string
+const url = urlFirst.toString()
 
 // connecting to mongodb database
 console.log('connecting to', url)
