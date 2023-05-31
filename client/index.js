@@ -38,6 +38,22 @@ app.use(express.json())
 
 
 
+// error middleware after all middlewares
+const errorHandler = (error, request, response, next) => {
+  console.error(error.message)
+  console.log('in error middleware')
+
+  if (error.name === 'CastError') {
+    return response.status(400).send({ error: 'malformatted id' })
+  } else if (error.name === 'ValidationError') {
+    return response.status(400).json({ error: error.message })
+  }
+
+  next(error)
+}
+
+
+
 
 
 // gets all data form mongoDB Person_1
@@ -47,10 +63,12 @@ app.get('/api/persons', (request, response) => {
     .then(persons => {
       response.json(persons);
     })
-    .catch(error => {
-      response.status(500).json({ error: 'An error occurred' });
+    .catch(error => next(error));
     });
-});
+
+
+
+
 
 app.get('/hello', (req, res) => {
     
@@ -99,15 +117,12 @@ app.delete('/api/persons/:id', (request, response) => {
 
 
 // POST
-app.post('/', (request, response) => {
+app.post('/', (request, response, next) => {
 
   // put request to variable
   const body = request.body
 
-  // if body === undefined
-  if (body === undefined) {
-    return response.status(400).json({ error: 'content missing' })
-  }
+
 
   console.log('in post!!!!')
   // new person
@@ -122,6 +137,8 @@ app.post('/', (request, response) => {
   person.save().then(savedPerson => {
     response.json(savedPerson)
   })
+  // if error
+  .catch(error => next(error))
 })
 
 
@@ -135,6 +152,8 @@ app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
 
+// tämä tulee kaikkien muiden middlewarejen rekisteröinnin jälkeen!
+app.use(errorHandler)
 
 
 

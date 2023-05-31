@@ -20,7 +20,9 @@ mongoose.connect(url)
 
 // making schemaobject?
 const personSchema = new mongoose.Schema({
-  name: String,
+  name: {
+    String,
+  },
   number: String
 })
 
