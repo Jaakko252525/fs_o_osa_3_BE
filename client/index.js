@@ -123,20 +123,22 @@ app.post('/', (request, response, next) => {
   const body = request.body
 
 
-
   console.log('in post!!!!')
   // new person
   const person = new Person_1({
     name: body.name,
     number: body.number,
   })
+  
   console.log('this is body.name:', body.name)
   console.log('this is body.number:', body.number)
 
   // showing response of operation if succesfull
-  person.save().then(savedPerson => {
-    response.json(savedPerson)
-  })
+  person.save()
+    .then(savedPerson => {
+      response.json(savedPerson)
+    })
+
   // if error
   .catch(error => next(error))
 })
