@@ -5,13 +5,15 @@ const app = express()
 
 const mongoose = require('mongoose')
 
+//  dotenv. Importing .env file
+require('dotenv').config()
 
 // setting someting
 mongoose.set('strictQuery', false)
 
 
 // connecting to database
-mongoose.connect('mongodb+srv://MrRobotss252525:heihei123@fullstackopen.zz8a87y.mongodb.net/noteApp?retryWrites=true&w=majority')
+// mongoose.connect('mongodb+srv://MrRobotss252525:heihei123@fullstackopen.zz8a87y.mongodb.net/noteApp?retryWrites=true&w=majority')
 console.log('database connected succesfully!!!')
 
 
